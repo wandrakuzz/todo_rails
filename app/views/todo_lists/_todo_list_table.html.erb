@@ -3,10 +3,10 @@
       <td><%= todo_list.title %></td>
       <td><%= todo_list.description %></td>
       <td>
-        <% if todo_list.todo_items %>
-            <%= (todo_list.todo_items.where(:completed => true).count.to_f / todo_list.todo_items.count.to_f * 100.0).round(0) %>
+        <% if todo_list.todo_items.count > 1 %>
+            <%= (todo_list.todo_items.complete_count / todo_list.todo_items.total_count * 100.0).round(0) %>
             <% else %>
-            '0'
+            0
         <% end %>
       </td>
       <td>
