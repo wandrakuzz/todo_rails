@@ -1,0 +1,7 @@
+<%= form_for([@todo_list,@todo_list.todo_items.build]) do |f| %>
+<div class="form-inline">
+	<%= f.text_field :content, placeholder: "New Todo", class: "form-control w-25" %>
+	<%= f.submit "Create", class: "btn btn-sm btn-primary mx-2" %>
+</div>
+	
+<% end %>

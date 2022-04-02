@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "Back ", todo_lists_path, class: "btn btn-sm btn-primary my-2" %>
+<!-- <%= render @todo_list %> -->
+
+<div class="card w-50">
+  <div class="card-header">
+    <p>
+	<strong>Title:</strong>
+	<%= @todo_list.title %>
+</p>
+<p>
+	<strong>Description:</strong>
+	<%= @todo_list.description %>
+</p>
+<p>
+  <%= @todo_list.todo_items.where(:completed => true).count %> / <%= @todo_list.todo_items.count %> complete
+</p>
+  </div>
+  <div class="card-body">
+   <div id="todo_items_wrapper">
+	<%= render @todo_list.todo_items %>
+	<div id="form">
+		<%= render "todo_items/form" %>
+	</div>
+</div>
+  </div>
+</div>
+
+
+<!-- <div>
+  <%= link_to "Edit ", edit_todo_list_path(@todo_list) %> |
+  <%= link_to "Back ", todo_lists_path %>
+
+  <%= button_to "Destroy this todo list", @todo_list, method: :delete %>
+</div> -->

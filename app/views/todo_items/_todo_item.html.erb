@@ -1,0 +1,31 @@
+
+	<div class="d-flex align-items-center">
+	  	
+	  	<div class="d-flex justify-content-between w-100 align-items-center">
+	  		<div class="" for="">
+		  	<p class="text-decoration-line-through">
+		  		<% if todo_item.completed == true %>
+		  			<s><%= todo_item.content %></s>
+		  			<% else %>
+		  			<%= todo_item.content %>
+		  		<% end %>
+		  		
+		  	</p>
+		  </div>
+		  <div class="row p-2">
+		  	<% if todo_item.completed == false %>
+		  		<p class="mx-2"><%= link_to todo_list_todo_item_path(@todo_list,todo_item), data: {turbo_method: :patch} do%></p>
+		  		<i class="fa fa-check text-success" aria-hidden="true"></i>
+		  		<% end %>
+		  	<% else %>
+		  	<p class="mx-2"><%= link_to todo_list_revert_path(@todo_list,todo_item), data: {turbo_method: :patch} do%></p>
+		  		<i class="fa fa-repeat" aria-hidden="true"></i>
+		  		<% end %>
+		  	 <%end %>
+		  	
+		  	<p class="mx-2"><%= link_to todo_list_todo_item_path(@todo_list,todo_item), data: {turbo_method: :delete} do%></p>
+		    <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+		    <% end %>
+		  </div>
+	  	</div>
+	</div>

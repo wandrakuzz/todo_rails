@@ -1,0 +1,20 @@
+<tr>
+      <td><%= todo_list.id %></td>
+      <td><%= todo_list.title %></td>
+      <td><%= todo_list.description %></td>
+      <td>
+        <% if todo_list.todo_items %>
+            <%= (todo_list.todo_items.where(:completed => true).count.to_f / todo_list.todo_items.count.to_f * 100.0).round(0) %>
+            <% else %>
+            '0'
+        <% end %>
+      </td>
+      <td>
+      	<%= link_to "Show", todo_list, {:class => "btn btn-sm btn-success"}%>
+      	<%= link_to "Edit ", edit_todo_list_path(todo_list), {:class => "btn btn-sm btn-warning"}%>
+		<%= link_to "Destroy",
+					 todo_list,
+					 data: {turbo_method: :delete},
+					 class: "btn btn-sm btn-danger" %>	
+      	</td>
+    </tr>
